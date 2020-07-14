@@ -11,10 +11,9 @@ import java.util.List;
 public class Injector {
 
     /**
-     * 注入绑定view
-     *
-     * @param fieldOwner
-     * @param activity
+     * <div>
+     *     注入绑定view
+     * </div>
      */
     public static void inject(Object fieldOwner, Activity activity) {
         try {
@@ -27,9 +26,6 @@ public class Injector {
 
     /**
      * 注入绑定view
-     *
-     * @param fieldOwner
-     * @param view
      */
     public static void inject(Object fieldOwner, View view) {
         try {

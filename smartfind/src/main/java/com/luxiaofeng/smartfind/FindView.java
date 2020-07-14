@@ -10,9 +10,9 @@ import java.lang.annotation.Target;
 
 /**
  * @author luxiaofeng
- * <p>
- *     <li>绑定视图控件 </li>
- * </p>
+ * <div>
+ *     绑定视图控件,使用前需要先初始化
+ * </div>
  */
 
 @Retention(RetentionPolicy.RUNTIME)

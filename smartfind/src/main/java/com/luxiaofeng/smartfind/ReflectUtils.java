@@ -11,22 +11,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @describe:反射相关辅助函数
+ *<div>
+ *     反射相关
+ *</div>
  */
 
 public class ReflectUtils {
 
     /**
-     * 反射调用类成员函数
-     *
-     * @param instance
-     * @param name
-     * @param paramTypes
-     * @param paramValues
-     * @return
-     * @throws NoSuchMethodException
-     * @throws InvocationTargetException
-     * @throws IllegalAccessException
+     *<div>
+     *     反射函数
+     *</div>
      */
     public static Object invokeMethod(Object instance, String name, Class<?>[] paramTypes, Object[] paramValues)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
@@ -38,15 +33,6 @@ public class ReflectUtils {
 
     /**
      * 反射调用类静态成员函数
-     *
-     * @param clazz
-     * @param name
-     * @param paramTypes
-     * @param paramValues
-     * @return
-     * @throws NoSuchMethodException
-     * @throws InvocationTargetException
-     * @throws IllegalAccessException
      */
     public static Object invokeStaticMethod(Class<?> clazz, String name, Class<?>[] paramTypes, Object[] paramValues)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
@@ -57,12 +43,6 @@ public class ReflectUtils {
 
     /**
      * 设置类成员变量
-     *
-     * @param instance
-     * @param name
-     * @param value
-     * @throws NoSuchFieldException
-     * @throws IllegalAccessException
      */
     public static void setFieldValue(Object instance, String name, Object value) throws NoSuchFieldException, IllegalAccessException {
         Class<?> clazz = instance.getClass();
@@ -71,15 +51,6 @@ public class ReflectUtils {
         field.set(instance, value);
     }
 
-    /**
-     * 设置类静态成员变量
-     *
-     * @param clazz
-     * @param name
-     * @param value
-     * @throws NoSuchFieldException
-     * @throws IllegalAccessException
-     */
     public static void setStaticFieldValue(Class<?> clazz, String name, Object value) throws NoSuchFieldException, IllegalAccessException {
         Field field = getField(clazz, name);
         field.setAccessible(true);
@@ -88,12 +59,6 @@ public class ReflectUtils {
 
     /**
      * 获取类属性值
-     *
-     * @param instance
-     * @param name
-     * @return
-     * @throws NoSuchFieldException
-     * @throws IllegalAccessException
      */
     public static Object getFieldValue(Object instance, String name) throws NoSuchFieldException, IllegalAccessException {
         Class<?> clazz = instance.getClass();
@@ -104,12 +69,6 @@ public class ReflectUtils {
 
     /**
      * 获取类静态属性值
-     *
-     * @param clazz
-     * @param name
-     * @return
-     * @throws NoSuchFieldException
-     * @throws IllegalAccessException
      */
     public static Object getStaticFieldValue(Class<?> clazz, String name) throws NoSuchFieldException, IllegalAccessException {
         Field field = getField(clazz, name);
@@ -119,10 +78,6 @@ public class ReflectUtils {
 
     /**
      * 获取类所有成员变量
-     *
-     * @param instance
-     * @return
-     * @throws IllegalAccessException
      */
     public static Map<String, Object> getFieldMap(Object instance) throws IllegalAccessException {
         return getFieldMapInternal(instance.getClass(), instance, false);
@@ -130,10 +85,6 @@ public class ReflectUtils {
 
     /**
      * 获取类所有静态变量
-     *
-     * @param clazz
-     * @return
-     * @throws IllegalAccessException
      */
     public static Map<String, Object> getStaticFieldMap(Class<?> clazz) throws IllegalAccessException {
         return getFieldMapInternal(clazz, null, true);
@@ -141,9 +92,6 @@ public class ReflectUtils {
 
     /**
      * 获取类所有成员变量，包含定义在父类的成员
-     *
-     * @param clazz
-     * @return
      */
     public static List<Field> getFields(Class<?> clazz) {
         List<Field> fields = new ArrayList<Field>();
@@ -158,9 +106,6 @@ public class ReflectUtils {
 
     /**
      * 获取类所有成员函数，包含定义在父类的成员
-     *
-     * @param clazz
-     * @return
      */
     public static List<Method> getMethods(Class<?> clazz) {
         List<Method> methods = new ArrayList<Method>();
@@ -175,10 +120,6 @@ public class ReflectUtils {
 
     /**
      * 判断一个类是否集成自另一个类
-     *
-     * @param child
-     * @param parent
-     * @return
      */
     public static boolean isSubClassOf(Class<?> child, Class<?> parent) {
         if (child == null) {
